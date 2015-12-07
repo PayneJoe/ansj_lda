@@ -14,7 +14,7 @@ public class DicReader {
 	public static BufferedReader getReader(String name) {
 		// maven工程修改词典加载方式
 		InputStream in = DicReader.class.getResourceAsStream("/" + name);
-		System.out.println(DicReader.class.getResource("/"));
+//		System.out.println(DicReader.class.getResource("/"));
 		try {
 			return new BufferedReader(new InputStreamReader(in, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {

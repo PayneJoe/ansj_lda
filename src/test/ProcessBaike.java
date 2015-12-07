@@ -22,7 +22,7 @@ public class ProcessBaike {
 		// TODO Auto-generated method stub
 		
 		String inputFile = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\dict\\baike_20151203.dict";
-		String outputFile = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\dict\\baike.dict";
+		String outputFile = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\dict\\baike.dic";
 //		BufferedReader newReader = Files.newReader(new File(inputFile), Charsets.UTF_8);
 //		BufferedWriter newWriter = Files.newWriter(new File(outputFile), Charsets.UTF_8);
 		FileInputStream fi = new FileInputStream(new File(inputFile));
@@ -38,7 +38,8 @@ public class ProcessBaike {
 			if(parts.length > 1){
 				continue;
 			}
-			tmp = tmp + "\t" + "n\t" + random.nextInt(max)%(max-min+1) + min + "\n"; 
+//			tmp = tmp + "\t" + "n\t" + (random.nextInt(max)%(max-min+1) + min) + "\n";
+			tmp = tmp +"\n";
 			String line = new String(tmp.getBytes("utf-8"),"utf-8");
 			writer.write(line);
 			writer.flush();

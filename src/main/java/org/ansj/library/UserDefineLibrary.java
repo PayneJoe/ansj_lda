@@ -92,8 +92,8 @@ public class UserDefineLibrary {
 			// return userLibrary once initiated MyStaticValue 
 			String userLibrary = MyStaticValue.userLibrary;
 			loadLibrary(FOREST, userLibrary);
-			String baikeLibrary = MyStaticValue.baikeLibrary;
-			loadLibrary(FOREST,baikeLibrary);
+//			String baikeLibrary = MyStaticValue.baikeLibrary;
+//			loadLibrary(FOREST,baikeLibrary);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -127,6 +127,8 @@ public class UserDefineLibrary {
 						continue;
 					}
 
+					// no problem with non-nature and non-frequency
+					// 
 					if (strs.length != 3) {
 						value = new Value(strs[0], DEFAULT_NATURE, DEFAULT_FREQ_STR);
 					} else {

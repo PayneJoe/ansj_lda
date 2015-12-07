@@ -221,7 +221,8 @@ public abstract class LDAModel {
 
 		// lda.twords phi[][] K*V
 		writer = Files.newWriter(new File(modelDir, modelName + ".twords"), charset);
-		int topNum = 20;
+		// default number of keywords under a topic
+		int topNum = 50;
 		double[] scores = null;
 		VecotrEntry pollFirst = null;
 		for (int i = 0; i < topicNum; i++) {

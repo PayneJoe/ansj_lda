@@ -52,11 +52,11 @@ public class MyStaticValue {
 
 	/**
 	 * 用户自定义词典的加载,如果是路径就扫描路径下的dic文件 
-	 * default position of libraries
+	 * default libraries positioned under source directory
 	 */
 	public static String userLibrary = "resources/library/default.dic";
 	
-	public static String baikeLibrary = "";
+//	public static String baikeLibrary = "";
 
 	public static String ambiguityLibrary = "resources/library/ambiguity.dic";
 
@@ -103,9 +103,9 @@ public class MyStaticValue {
 			crfModel = rb.getString("crfModel");
 		if (rb.containsKey("crfModel"))
 			crfModel = rb.getString("crfModel");
-		if (rb.containsKey("baikeLibrary")){
-			baikeLibrary = rb.getString("baikeLibrary");
-		}
+//		if (rb.containsKey("baikeLibrary")){
+//			baikeLibrary = rb.getString("baikeLibrary");
+//		}
 	}
 
 	/**
