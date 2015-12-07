@@ -14,13 +14,13 @@ import com.google.common.io.Files;
 public class Test3 {
 
 	public static void main(String[] args) throws IOException {
-		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(30, 50/(double)30, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
+		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(40, 50/(double)40, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
 		String inputPath = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\baike";
 		File file = new File(inputPath);
 		File[] inputFiles = file.listFiles();
 		int j = 0;
 		for(File f : inputFiles){
-			if(j == 20){
+			if(j == 40){
 				break;
 			}
 			BufferedReader newReader = Files.newReader(f, Charsets.UTF_8);
