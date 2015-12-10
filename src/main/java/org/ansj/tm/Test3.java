@@ -40,22 +40,20 @@ public class Test3 {
 		for(k =0 ;k < inputFiles2.length;k++){
 			totalFiles[i++] = inputFiles2[k];
 		}
-		
+		System.out.println("total files : " + totalFiles.length);
+		k = 0 ;
 		for(i = 0; i < totalFiles.length; i += 4){
-			if(i == 200){
+			if(i > 200){
 				break;
 			}
+			System.out.println("----------------- " + i);
 			BufferedReader newReader = Files.newReader(totalFiles[i], Charsets.UTF_8);
 			String temp =null ;
-			k = 0 ;
 			while((temp=newReader.readLine())!=null){
-//				if(i == 2){
-//					break;
-//				}
-				lda.addDoc(String.valueOf(++i),temp) ;
+				lda.addDoc(String.valueOf(++k),temp) ;
 				k++;
 			}
-			System.out.println("File : "+totalFiles[i].getName());
+			System.out.println("File : " + totalFiles[i].getName());
 		}
 		lda.trainAndSave(outputPath, "utf-8") ;
 	}
