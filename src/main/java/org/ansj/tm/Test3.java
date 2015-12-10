@@ -19,14 +19,16 @@ public class Test3 {
 		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(40, 50/(double)40, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
 //		String inputPath = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\baike";
 		// windows
-		String inputPath1 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\brand\\thined";
+		/*
+  		String inputPath1 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\brand\\thined";
 		String inputPath2 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\topic\\thined";
 		String outputPath = "E:\\work\\project\\site-analysis\\test";
+		*/
 		
 		// linux
-//		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
-//		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
-//		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
+		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
+		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
+		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
 		File file1 = new File(inputPath1);
 		File[] inputFiles1 = file1.listFiles();
 		File file2 = new File(inputPath2);
@@ -46,11 +48,18 @@ public class Test3 {
 			if(i > 200){
 				break;
 			}
-			System.out.println("----------------- " + i);
 			BufferedReader newReader = Files.newReader(totalFiles[i], Charsets.UTF_8);
 			String temp =null ;
+			int j = 0;
 			while((temp=newReader.readLine())!=null){
-				lda.addDoc(String.valueOf(++k),temp) ;
+				try{		
+					lda.addDoc(String.valueOf(++k),temp) ;
+				}	
+				catch (Exception e){
+					System.out.println("line error : " + j);
+					break;
+				}
+				j++;
 				k++;
 			}
 			System.out.println("File : " + totalFiles[i].getName());
