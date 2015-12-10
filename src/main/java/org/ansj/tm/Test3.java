@@ -18,9 +18,15 @@ public class Test3 {
 	public static void main(String[] args) throws IOException {
 		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(40, 50/(double)40, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
 //		String inputPath = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\baike";
-		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
-		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
-		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
+		// windows
+		String inputPath1 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\brand\\thined";
+		String inputPath2 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\topic\\thined";
+		String outputPath = "E:\\work\\project\\site-analysis\\test";
+		
+		// linux
+//		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
+//		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
+//		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
 		File file1 = new File(inputPath1);
 		File[] inputFiles1 = file1.listFiles();
 		File file2 = new File(inputPath2);
