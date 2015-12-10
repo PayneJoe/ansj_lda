@@ -20,31 +20,36 @@ public class Test3 {
 //		String inputPath = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\baike";
 		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
 		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
-		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/baike";
+		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
 		File file1 = new File(inputPath1);
 		File[] inputFiles1 = file1.listFiles();
 		File file2 = new File(inputPath2);
 		File[] inputFiles2 = file2.listFiles();
 		File[] totalFiles =  new File[inputFiles1.length + inputFiles2.length];
-		Arrays.copyOf(original, newLength)
+		int i = 0;
+		int k ;
+		for(k = 0;k < inputFiles1.length;k++){
+			totalFiles[i++] = inputFiles1[k];
+		}
+		for(k =0 ;k < inputFiles2.length;k++){
+			totalFiles[i++] = inputFiles2[k];
+		}
 		
-		int j = 0;
-		for(File f : inputFiles){
-			if(j == 40){
+		for(i = 0; i < totalFiles.length; i += 4){
+			if(i == 200){
 				break;
 			}
-			BufferedReader newReader = Files.newReader(f, Charsets.UTF_8);
+			BufferedReader newReader = Files.newReader(totalFiles[i], Charsets.UTF_8);
 			String temp =null ;
-			int i = 0 ;
+			k = 0 ;
 			while((temp=newReader.readLine())!=null){
 //				if(i == 2){
 //					break;
 //				}
 				lda.addDoc(String.valueOf(++i),temp) ;
-				i++;
+				k++;
 			}
-			j++;
-			System.out.println("File : "+f.getName());
+			System.out.println("File : "+totalFiles[i].getName());
 		}
 		lda.trainAndSave(outputPath, "utf-8") ;
 	}
