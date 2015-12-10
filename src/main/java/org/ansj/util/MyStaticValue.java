@@ -54,13 +54,13 @@ public class MyStaticValue {
 	 * 用户自定义词典的加载,如果是路径就扫描路径下的dic文件 
 	 * default libraries positioned under source directory
 	 */
-	public static String userLibrary = "resources/library/default.dic";
+	public static String userLibrary = "library/default.dic";
 	
 //	public static String baikeLibrary = "";
 
-	public static String ambiguityLibrary = "resources/library/ambiguity.dic";
+	public static String ambiguityLibrary = "library/ambiguity.dic";
 
-	private static String crfModel = "resources/library/crf.model";
+	private static String crfModel = "library/crf.model";
 
 	/**
 	 * 是否用户辞典不加载相同的词
@@ -114,7 +114,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getPersonReader() {
-		return DicReader.getReader("resources/person/person.dic");
+		return DicReader.getReader("person/person.dic");
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getCompanReader() {
-		return DicReader.getReader("resources/company/company.data");
+		return DicReader.getReader("company/company.data");
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getNewWordReader() {
-		return DicReader.getReader("resources/newWord/new_word_freq.dic");
+		return DicReader.getReader("newWord/new_word_freq.dic");
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getArraysReader() {
-		return DicReader.getReader("resources/arrays.dic");
+		return DicReader.getReader("arrays.dic");
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getNumberReader() {
-		return DicReader.getReader("resources/numberLibrary.dic");
+		return DicReader.getReader("numberLibrary.dic");
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getEnglishReader() {
-		return DicReader.getReader("resources/englishLibrary.dic");
+		return DicReader.getReader("englishLibrary.dic");
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getNatureMapReader() {
-		return DicReader.getReader("resources/nature/nature.map");
+		return DicReader.getReader("nature/nature.map");
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getNatureTableReader() {
-		return DicReader.getReader("resources/nature/nature.table");
+		return DicReader.getReader("nature/nature.table");
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class MyStaticValue {
 	 * @return
 	 */
 	public static BufferedReader getPersonFreqReader() {
-		return DicReader.getReader("resources/person/name_freq.dic");
+		return DicReader.getReader("person/name_freq.dic");
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class MyStaticValue {
 		ObjectInputStream objectInputStream = null;
 		Map<String, int[][]> map = new HashMap<String, int[][]>(0);
 		try {
-			inputStream = DicReader.getInputStream("resources/person/asian_name_freq.data");
+			inputStream = DicReader.getInputStream("person/asian_name_freq.data");
 			objectInputStream = new ObjectInputStream(inputStream);
 			map = (Map<String, int[][]>) objectInputStream.readObject();
 
@@ -229,7 +229,7 @@ public class MyStaticValue {
 	public static void initBigramTables() {
 		BufferedReader reader = null;
 		try {
-			reader = IOUtil.getReader(DicReader.getInputStream("resources/bigramdict.dic"), "UTF-8");
+			reader = IOUtil.getReader(DicReader.getInputStream("bigramdict.dic"), "UTF-8");
 			String temp = null;
 			String[] strs = null;
 			int freq = 0;

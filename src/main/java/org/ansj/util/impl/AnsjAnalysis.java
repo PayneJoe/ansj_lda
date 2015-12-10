@@ -50,7 +50,7 @@ public class AnsjAnalysis implements Analysis {
 
 		try {
 //			BufferedReader reader = IOUtil.getReader(new FileInputStream("library/newWordFilter.dic"), "UTF-8");
-			BufferedReader reader = DicReader.getReader("resources/newWord/newWordFilter.dic");
+			BufferedReader reader = DicReader.getReader("newWord/newWordFilter.dic");
 			String temp = null;
 			while ((temp = reader.readLine()) != null) {
 				hs.add(temp);

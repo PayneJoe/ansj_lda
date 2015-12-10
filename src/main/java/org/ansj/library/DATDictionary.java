@@ -43,7 +43,7 @@ public class DATDictionary {
 
 		try {
 
-			DoubleArrayTire dat = DoubleArrayTire.loadText(DicReader.getInputStream("resources/core.dic"), AnsjItem.class);
+			DoubleArrayTire dat = DoubleArrayTire.loadText(DicReader.getInputStream("core.dic"), AnsjItem.class);
 
 			/**
 			 * 人名识别必备的
