@@ -45,9 +45,11 @@ public class Test3 {
 		System.out.println("total files : " + totalFiles.length);
 		k = 0 ;
 		for(i = 0; i < totalFiles.length; i += 4){
+			/*
 			if(i > 200){
 				break;
 			}
+			*/
 			BufferedReader newReader = Files.newReader(totalFiles[i], Charsets.UTF_8);
 			String temp =null ;
 			int j = 0;
