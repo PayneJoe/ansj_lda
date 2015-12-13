@@ -16,7 +16,7 @@ import com.google.common.io.Files;
 public class Test3 {
 
 	public static void main(String[] args) throws IOException {
-		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(40, 50/(double)40, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
+		LDA lda = new LDA(AnsjAnalysis.DEFAUlT,new LDAGibbsModel(100, 50/(double)100, 0.02, 150, Integer.MAX_VALUE, Integer.MAX_VALUE));
 //		String inputPath = "E:\\work\\project\\site-analysis\\ContentRetrieve\\video\\baike";
 		// windows
 		/*
@@ -26,16 +26,22 @@ public class Test3 {
 		*/
 		
 		// linux
+		String inputPath0 = "/home/yuanpingzhou/data/ansj_lda/input/baike";
 		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
 		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
-		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto";
+		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto_baike0";
+		File file0 = new File(inputPath0);
+		File[] inputFiles0 = file0.listFiles();
 		File file1 = new File(inputPath1);
 		File[] inputFiles1 = file1.listFiles();
 		File file2 = new File(inputPath2);
 		File[] inputFiles2 = file2.listFiles();
-		File[] totalFiles =  new File[inputFiles1.length + inputFiles2.length];
+		File[] totalFiles =  new File[inputFiles0.length + inputFiles1.length + inputFiles2.length];
 		int i = 0;
 		int k ;
+		for(k = 0;k < inputFiles0.length;k++){
+			totalFiles[i++] = inputFiles0[k];
+		}
 		for(k = 0;k < inputFiles1.length;k++){
 			totalFiles[i++] = inputFiles1[k];
 		}
@@ -45,11 +51,9 @@ public class Test3 {
 		System.out.println("total files : " + totalFiles.length);
 		k = 0 ;
 		for(i = 0; i < totalFiles.length; i += 4){
-			/*
-			if(i > 200){
-				break;
-			}
-			*/
+		//	if(i > 800){
+		//		break;
+		//	}
 			BufferedReader newReader = Files.newReader(totalFiles[i], Charsets.UTF_8);
 			String temp =null ;
 			int j = 0;

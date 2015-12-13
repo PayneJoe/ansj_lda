@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.ansj.lda.pojo.Doc;
 import org.ansj.lda.pojo.Topic;
@@ -243,6 +244,14 @@ public abstract class LDAModel {
 			writer.write("\n");
 		}
 		writer.flush();
+		writer.close();
+		
+		// save wordmap
+		writer = Files.newWriter(new File(modelDir, modelName + ".wordmap"), charset);
+		for(Entry<String, Integer>  entry : vectorMap.entrySet()){
+			writer.write(entry.getKey()+ "\t" + entry.getValue() + "\n");
+			writer.flush();
+		}
 		writer.close();
 	}
 
