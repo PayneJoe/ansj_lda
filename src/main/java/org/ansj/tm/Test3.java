@@ -23,34 +23,39 @@ public class Test3 {
   		String inputPath1 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\brand\\thined";
 		String inputPath2 = "E:\\work\\project\\site-analysis\\ContentRetrieve\\auto\\topic\\thined";
 		String outputPath = "E:\\work\\project\\site-analysis\\test";
-		*/
-		
+		*/	
 		// linux
-		String inputPath0 = "/home/yuanpingzhou/data/ansj_lda/input/baike";
-		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
-		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
-		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/auto_baike0";
-		File file0 = new File(inputPath0);
-		File[] inputFiles0 = file0.listFiles();
-		File file1 = new File(inputPath1);
-		File[] inputFiles1 = file1.listFiles();
-		File file2 = new File(inputPath2);
-		File[] inputFiles2 = file2.listFiles();
-		File[] totalFiles =  new File[inputFiles0.length + inputFiles1.length + inputFiles2.length];
-		int i = 0;
 		int k ;
-		for(k = 0;k < inputFiles0.length;k++){
-			totalFiles[i++] = inputFiles0[k];
-		}
-		for(k = 0;k < inputFiles1.length;k++){
-			totalFiles[i++] = inputFiles1[k];
-		}
-		for(k =0 ;k < inputFiles2.length;k++){
-			totalFiles[i++] = inputFiles2[k];
-		}
+		int i = 0;
+		// part of autohome + baike
+//		String inputPath0 = "/home/yuanpingzhou/data/ansj_lda/input/baike";
+//		String inputPath1 = "/home/yuanpingzhou/data/ansj_lda/input/autotopicpost";
+//		String inputPath2 = "/home/yuanpingzhou/data/ansj_lda/input/autobrandpost";
+
+//		File file0 = new File(inputPath0);
+//		File[] inputFiles0 = file0.listFiles();
+//		File file1 = new File(inputPath1);
+//		File[] inputFiles1 = file1.listFiles();
+//		File file2 = new File(inputPath2);
+//		File[] inputFiles2 = file2.listFiles();
+//		File[] totalFiles =  new File[inputFiles0.length + inputFiles1.length + inputFiles2.length];
+
+//		for(k = 0;k < inputFiles0.length;k++){
+//			totalFiles[i++] = inputFiles0[k];
+//		}
+//		for(k = 0;k < inputFiles1.length;k++){
+//			totalFiles[i++] = inputFiles1[k];
+//		}
+//		for(k =0 ;k < inputFiles2.length;k++){
+//			totalFiles[i++] = inputFiles2[k];
+//		}
+		String outputPath = "/home/yuanpingzhou/data/ansj_lda/output/AutoTopicEst";
+		String inputPath = "/home/yuanpingzhou/data/ansj_lda/input/AutoTopicEst";
+		File f = new File(inputPath);
+		File[] totalFiles = f.listFiles();
 		System.out.println("total files : " + totalFiles.length);
 		k = 0 ;
-		for(i = 0; i < totalFiles.length; i += 4){
+		for(i = 0; i < totalFiles.length; i += 1){
 		//	if(i > 800){
 		//		break;
 		//	}

@@ -315,7 +315,7 @@ public class Model {
 		return true;
 	}
 	
-	private boolean SaveInfModel() throws IOException
+	public boolean SaveInfModel() throws IOException
 	{
 		File modelDir = new File(outputModelPath);
 		// 创建路径

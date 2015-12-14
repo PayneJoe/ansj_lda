@@ -7,6 +7,7 @@ import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import org.ansj.inference.Model;
 import org.ansj.lda.impl.LDAGibbsModel;
 import org.ansj.util.Analysis;
 import org.ansj.util.impl.AnsjAnalysis;
@@ -26,6 +27,11 @@ public class LDA {
 	 */
 	private LDAModel ldaAModel = null;
 
+	/*
+	 * inference model
+	 */
+	private Model inferModel = null;
+	
 	/**
 	 * 集成分词
 	 */
@@ -50,6 +56,16 @@ public class LDA {
 		this.ldaAModel = ldaModel;
 	}
 
+	/*
+	 * inference initiation
+	 */
+	public LDA(Analysis analysis, Model inferModel,int docNum){
+		this.analysis = analysis;
+		this.inferModel = inferModel;
+		this.inferModel.init();
+		this.inferModel.SetDocNum(docNum);
+	}
+	
 	/**
 	 * 用户自定义分词器的设置
 	 * 
@@ -88,7 +104,42 @@ public class LDA {
 			e.printStackTrace();
 		}
 	}
-
+	/*
+	 * add doc for inference
+	 */
+	public void AddDoc(String name,String content){
+		Reader reader = new StringReader(content);
+		List<String> words = null;
+		try {
+			words = analysis.getWords(reader);
+			inferModel.AddDoc(name,words);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/*
+	 * inference and save inference model
+	 */
+	public void inferAndSave() throws IOException{
+		if(inferModel.InitInfer() == false){
+			System.out.println("init infer failed !");
+			return ;
+		}
+		
+		if(inferModel.Inference() == false){
+			System.out.println("inference failed ! ");
+			return;
+		}
+		
+		if(inferModel.SaveInfModel() == false){
+			System.out.println("save infer failed !");
+			return;
+		}
+	}
+	/*
+	 * train and save estimate model
+	 */
 	public void trainAndSave(String modelPath, String charset) throws IOException {
 		ldaAModel.trainAndSave(modelPath, charset);
 	}
